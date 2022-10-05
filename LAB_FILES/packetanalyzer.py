@@ -2,7 +2,7 @@ import subprocess
 import time
 
 print('PACKET ANALYZER: Starting tcpdump...')
-dumpprocess = subprocess.Popen(['sudo','tcpdump','-i','lo','-A','port','9090','-w','test.pcap'], start_new_session=True, stdout=subprocess.PIPE)
+dumpprocess = subprocess.Popen(['sudo','tcpdump','-i','lo','-A','port','9090','-w','~/test.pcap'], start_new_session=True, stdout=subprocess.PIPE)
 
 print('PACKET ANALYZER: Trying to connec to the webserver...')
 
@@ -15,8 +15,6 @@ subprocess.check_call(["sudo","kill", str(dumpprocess.pid)])
 time.sleep(2)
 
 # print('PACKET ANALYZER: Analyzing packet capture...')
-scanprocess = subprocess.run(['tcpdump -r /home/user/Desktop/pluralsight/tasks-python/test.pcap -A | grep \'href\|User-Agent\' >> reconfile.txt'], shell=True)
+scanprocess = subprocess.run(['tcpdump -r ~/test.pcap -A | grep \'href\|User-Agent\' >> reconfile.txt'], shell=True)
 
 print('PACKET ANALYZER: Complete. Results saved to reconfile.txt..')
-
-
