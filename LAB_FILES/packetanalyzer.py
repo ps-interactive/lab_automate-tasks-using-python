@@ -14,7 +14,7 @@ time.sleep(3)
 subprocess.check_call(["sudo","kill", str(dumpprocess.pid)])
 time.sleep(2)
 
-# print('PACKET ANALYZER: Analyzing packet capture...')
+print('PACKET ANALYZER: Analyzing packet capture...')
 scanprocess = subprocess.run(['tcpdump -r /home/ubuntu/test.pcap -A | grep \'href\|User-Agent\' >> /home/ubuntu/reconfile.txt'], shell=True)
 
 print('PACKET ANALYZER: Complete. Results saved to reconfile.txt...')
